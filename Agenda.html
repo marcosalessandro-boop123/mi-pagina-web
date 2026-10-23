@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Agenda Digital | U.E. Marcelino Champagnat II</title>
+<style>
+:root{--navy:#174a83;--navy2:#2366a8;--blue:#397fc4;--blue2:#eaf4ff;--gold:#8bb9e8;--gold-pale:#f0f7ff;--ink:#243b54;--muted:#687f98;--line:#d7e6f5;--paper:#fff;--bg:#f3f8fd;--green:#20745a;--red:#a83d46;--shadow:0 20px 55px rgba(23,74,131,.10)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0,#d8eaff 0,transparent 38%),var(--bg);font:15px/1.5 "Segoe UI",Arial,sans-serif;color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.shell{max-width:1180px;margin:26px auto;padding:0 16px}.app{background:var(--paper);border:1px solid #e3e9f0;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}.top-accent{height:6px;background:linear-gradient(90deg,#1d5a9b,#6da8e5 62%,#d7eaff)}
+header{padding:28px clamp(18px,4vw,42px);display:flex;align-items:center;gap:22px;background:linear-gradient(120deg,#fff 38%,#eaf4ff)}.logo-wrap{flex:0 0 116px;width:116px;height:116px;border-radius:18px;border:1px solid var(--line);background:white;display:grid;place-items:center;padding:7px}.logo{width:100%;height:100%;object-fit:contain}.brand{flex:1}.overline{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--blue);font-weight:800}.brand h1{font-size:clamp(1.35rem,3vw,2.05rem);line-height:1.15;color:var(--navy);margin:5px 0 7px;letter-spacing:-.035em}.brand p{margin:0;color:var(--muted)}.crest{font-size:28px;color:var(--gold);padding:12px;border-left:1px solid var(--line)}
+main{padding:clamp(18px,3.4vw,38px)}.hidden{display:none!important}.welcome{text-align:center;padding:18px 0 28px}.welcome h2{color:var(--navy);font-size:1.5rem;margin:0}.lead{color:var(--muted);margin:8px auto 25px;max-width:600px}.role-grid{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;text-align:left}.role-card{background:white;border:1px solid var(--line);border-radius:17px;padding:23px;min-height:185px;transition:.18s}.role-card:hover,.role-card:focus-visible{border-color:#8ab0e2;box-shadow:0 12px 28px #16385c13;transform:translateY(-2px);outline:0}.role-icon{width:48px;height:48px;border-radius:14px;background:var(--blue2);display:grid;place-items:center;font-size:25px;margin-bottom:14px}.role-card strong{display:block;font-size:1.08rem;color:var(--navy)}.role-card span:last-child{display:block;color:var(--muted);font-size:.9rem;margin-top:7px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:23px}.section-head h2{margin:0;color:var(--navy);font-size:1.45rem;letter-spacing:-.02em}.section-head p{margin:5px 0 0;color:var(--muted)}.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;color:var(--blue);font-weight:800;margin-bottom:5px}.nav-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.btn{border:1px solid var(--line);background:white;color:var(--navy);border-radius:9px;padding:9px 13px;font-weight:700}.btn:hover{background:#f3f7fc}.btn-primary{background:var(--navy);color:#fff;border-color:var(--navy)}.btn-primary:hover{background:var(--navy2)}.btn-danger{color:var(--red);border-color:#eccfd2}.btn-danger:hover{background:#fff4f4}.btn-gold{background:var(--gold-pale);border-color:#f0dfb4;color:#6c4d12}.badge{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:7px 11px;font-size:.8rem;font-weight:800;background:var(--blue2);color:var(--blue)}.badge:before{content:"";width:7px;height:7px;background:currentColor;border-radius:50%}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;padding:5px;background:#f0f4f9;border:1px solid #e5ebf3;border-radius:12px;margin-bottom:23px}.tab{border:0;background:transparent;color:var(--muted);padding:10px 14px;border-radius:8px;font-weight:750}.tab[aria-selected=true]{background:white;color:var(--navy);box-shadow:0 2px 8px #16385c10}.tab-panel{min-width:0}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:22px}.stat{border:1px solid var(--line);border-radius:14px;padding:16px;background:linear-gradient(145deg,#fff,#fbfdff)}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.82rem;font-weight:700;gap:8px}.stat-icon{width:31px;height:31px;border-radius:9px;display:grid;place-items:center;background:var(--blue2);color:var(--blue);font-size:17px}.stat strong{display:block;font-size:1.8rem;line-height:1.2;margin-top:12px;color:var(--navy)}.stat small{display:block;color:var(--muted);margin-top:5px}
+.card{border:1px solid var(--line);border-radius:15px;background:white;overflow:hidden;margin-bottom:19px}.card-head{padding:17px 19px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.card-head h3{margin:0;color:var(--navy);font-size:1.02rem}.card-body{padding:19px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.field{min-width:0}.field.full{grid-column:1/-1}label{display:block;font-weight:750;font-size:.86rem;color:#344962;margin-bottom:6px}input,select,textarea{width:100%;padding:11px 12px;border:1px solid #cbd6e4;border-radius:9px;background:white;color:var(--ink);outline:0;transition:.15s}input:focus,select:focus,textarea:focus{border-color:#5c8fd0;box-shadow:0 0 0 3px #2864a81b}textarea{min-height:100px;resize:vertical}input::placeholder,textarea::placeholder{color:#98a4b3}.hint{font-size:.78rem;color:var(--muted);margin-top:5px}.form-actions{grid-column:1/-1;display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.filters{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(170px,1fr) minmax(150px,.8fr);gap:12px;padding:16px 19px;background:#fbfcfe;border-bottom:1px solid var(--line)}.filters label{font-size:.78rem}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:720px}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid #e9eef4;vertical-align:top;font-size:.87rem}th{background:#f8fafc;color:#63738a;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}tbody tr:hover{background:#fbfdff}tbody tr:last-child td{border-bottom:0}.student-name{font-weight:800;color:var(--navy)}.subtext{display:block;color:var(--muted);font-size:.78rem;margin-top:3px}.type-pill{display:inline-block;background:var(--gold-pale);color:#76540f;border-radius:6px;padding:4px 7px;font-size:.75rem;font-weight:800}.table-actions{display:flex;gap:6px;flex-wrap:wrap}.mini{font-size:.77rem;padding:6px 8px;border-radius:7px}.empty{padding:32px 18px;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--navy);margin-bottom:5px}.notice{padding:13px 15px;border-radius:10px;margin:0 0 18px;font-size:.87rem}.notice.info{background:#edf5ff;border:1px solid #d0e1f7;color:#294f7d}.notice.warn{background:#fff8e7;border:1px solid #f0dfb0;color:#765717}.notice.success{background:#eef9f4;border:1px solid #cbe9da;color:#21654f}.notice.error{background:#fff2f2;border:1px solid #edcccc;color:#94343c}.timeline{display:grid;gap:12px}.timeline-item{position:relative;padding:16px 17px 16px 21px;border:1px solid var(--line);border-radius:12px;background:white}.timeline-item:before{content:"";position:absolute;left:0;top:15px;bottom:15px;width:4px;background:var(--gold);border-radius:0 4px 4px 0}.timeline-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.timeline-item h4{margin:0;color:var(--navy);font-size:.97rem}.timeline-item p{margin:8px 0 0;color:var(--muted);font-size:.87rem}.footer{padding:18px 24px;border-top:1px solid var(--line);background:#fbfcfe;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#7b899a;font-size:.77rem}.privacy{display:flex;align-items:flex-start;gap:9px}.privacy span{color:var(--blue)}
+
+/* Portada inspirada en la referencia: familia a la izquierda, acceso docente centrado y administración a la derecha */
+.welcome{padding:26px 0 18px}.welcome h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:850}.welcome .lead{max-width:900px;font-size:1.12rem;color:#244e7d}
+.portal-layout{display:grid;grid-template-columns:1fr 1.25fr 1fr;align-items:center;gap:18px;margin:22px 0 24px;text-align:left}
+.side-card{min-height:280px;padding:28px 25px;background:#e3f0fd!important;border:2px solid #9bc7f0!important;border-radius:15px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;color:var(--navy)}
+.teacher-entry{align-self:stretch;justify-content:center;min-height:270px}.side-card strong{font-size:clamp(1.2rem,2vw,1.75rem);line-height:1.2;margin-top:0}.side-card span:last-child{font-size:1rem;line-height:1.55;color:#355e89}.role-icon.round-icon{width:78px;height:78px;border-radius:50%;background:#2c7cc5;color:#fff;display:grid;place-items:center;padding:18px;margin-bottom:16px}.role-icon svg{width:100%;height:100%;fill:currentColor}.login-card{position:relative;z-index:2;background:#f8fbff;border:2px solid #c3d9ee;border-radius:18px;padding:24px 27px;box-shadow:0 14px 30px #245c9120;margin:0 -7px}.login-title{display:flex;align-items:center;gap:14px;border-bottom:3px solid #a8cfee;padding-bottom:15px;margin-bottom:18px;color:var(--navy)}.login-title svg{width:68px;height:68px;fill:#2c7cc5;flex:none}.login-title h3{font-size:clamp(1.35rem,2.3vw,2rem);line-height:1.1;margin:0;font-weight:850}.login-card .field{position:relative;margin-bottom:16px}.login-card label{font-size:.98rem;color:#173f70}.login-card input{padding:13px 42px 13px 14px;border:2px solid #c7d9e9;border-radius:10px;background:#fff}.input-symbol{position:absolute;right:14px;bottom:11px;color:#7088a2;font-size:20px}.password-wrap{position:relative}.password-wrap input{padding-right:48px}.eye-btn{position:absolute;right:7px;top:5px;border:0;background:transparent;color:#617f9f;font-size:22px;padding:5px 7px}.login-submit{width:100%;padding:13px;font-size:1.05rem;border-radius:10px;background:#2c7cc5;border-color:#2c7cc5}.login-demo-note{margin:12px 0 0;text-align:center;color:#52769b;font-size:.78rem}.login-error{margin:10px 0 0;color:#a12f3a;font-weight:700}.privacy-home{max-width:none!important;margin:0!important;background:#e3f1ff!important;border:2px solid #b3d5f4!important;color:#214e7b!important;padding:18px 22px;font-size:.95rem}
+@media(max-width:900px){.portal-layout{grid-template-columns:1fr 1fr}.login-card{grid-column:1/-1;grid-row:1;max-width:560px;width:100%;justify-self:center}.side-card{min-height:220px}.side-card:first-child{grid-column:1}.side-card:last-child{grid-column:2}}@media(max-width:760px){.shell{margin:10px auto;padding:0 8px}.app{border-radius:16px}header{gap:13px;padding:20px}.logo-wrap{width:88px;height:88px;flex-basis:88px}.crest{display:none}main{padding:20px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:1fr}.role-grid{gap:12px}.role-card{padding:18px}}@media(max-width:520px){.portal-layout{grid-template-columns:1fr}.login-card{grid-column:1;grid-row:auto;padding:20px}.side-card:first-child,.side-card:last-child{grid-column:1;min-height:170px}.login-title svg{width:54px;height:54px}.role-grid,.form-grid{grid-template-columns:1fr}.field.full,.form-actions{grid-column:auto}.role-card{min-height:0}.section-head{display:block}.nav-actions{margin-top:13px}.stats{gap:9px}.stat{padding:12px}.stat strong{font-size:1.55rem}.tabs{display:grid;grid-template-columns:1fr 1fr}.tab{padding:9px 5px}.footer{display:block}.footer span{display:block;margin:4px 0}}
+
+/* Tema institucional azul medio: superficies azuladas y bordes azules en toda la interfaz */
+:root{--navy:#174a83;--navy2:#2366a8;--blue:#397fc4;--blue2:#dcecff;--gold:#6da8e5;--gold-pale:#e4f0ff;--ink:#203b59;--muted:#536f8e;--line:#7eafe0;--paper:#eaf3fd;--bg:#dceafa;--shadow:0 20px 55px rgba(23,74,131,.16)}
+body{background:radial-gradient(ellipse at 10% 0,#b8d7f8 0,transparent 42%),linear-gradient(135deg,#dceafa,#c9e0f8);color:var(--ink)}
+.app{background:#eaf3fd;border:2px solid #6da4dc}
+.top-accent{background:linear-gradient(90deg,#174a83,#4f91d3 62%,#a8cff5)}
+header{background:linear-gradient(120deg,#d9eafd 0%,#c6def8 52%,#e5f1ff 100%);border-bottom:1px solid #7eafe0}
+.logo-wrap{background:#d5e8fc;border:2px solid #6da4dc}
+.crest{border-left:1px solid #7eafe0}
+.role-card,.card,.timeline-item{background:#e4effc;border-color:#7eafe0}
+.role-card:hover,.role-card:focus-visible{border-color:#397fc4;box-shadow:0 12px 28px #16385c20}
+.btn{background:#dceafa;border-color:#7eafe0;color:#174a83}
+.btn:hover{background:#c8e0fa}
+.btn-primary{background:#2366a8;color:#fff;border-color:#2366a8}
+.btn-primary:hover{background:#174a83}
+.btn-danger{background:#f0e8f0;border-color:#bd9bc3;color:#8a3445}
+.btn-gold{background:#dcecff;border-color:#7eafe0;color:#174a83}
+.tabs{background:#d2e5fa;border-color:#7eafe0}
+.tab[aria-selected=true]{background:#edf5ff;color:#174a83;box-shadow:0 2px 8px #16385c15}
+.stat{background:linear-gradient(145deg,#e7f1fd,#d9eafb);border-color:#7eafe0}
+.card-head{border-bottom-color:#7eafe0;background:#d7e9fc}
+input,select,textarea{background:#f0f6ff;border:1.5px solid #7eafe0;color:#203b59}
+input:focus,select:focus,textarea:focus{background:#f6faff;border-color:#397fc4;box-shadow:0 0 0 3px #2864a826}
+.filters{background:#dceafa;border-bottom-color:#7eafe0}
+th{background:#d2e5fa;color:#315b86}
+th,td{border-bottom-color:#9bbfe5}
+tbody tr:hover{background:#dcecff}
+.footer{background:#d4e7fb;border-top:1px solid #7eafe0;color:#456789}
+.notice.info{background:#d9eaff;border-color:#7eafe0;color:#244f7b}
+.notice.warn{background:#e4efff;border-color:#8eb6e1;color:#31577e}
+.notice.success{background:#dceff4;border-color:#82b6d0;color:#245a75}
+.notice.error{background:#f1e8f0;border-color:#c9a3c3;color:#843b53}
+.role-icon,.stat-icon{background:#c9e1fb;color:#2366a8}
+.badge{background:#d1e6fc;color:#245f9b}
+.type-pill{background:#d5e8fc;color:#174a83}
+.empty{background:#e1edfb}
+.track-blue{background:#c8def6}
+
+/* Portada inspirada en la referencia: familia a la izquierda, acceso docente centrado y administración a la derecha */
+.welcome{padding:26px 0 18px}.welcome h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:850}.welcome .lead{max-width:900px;font-size:1.12rem;color:#244e7d}
+.portal-layout{display:grid;grid-template-columns:1fr 1.25fr 1fr;align-items:center;gap:18px;margin:22px 0 24px;text-align:left}
+.side-card{min-height:280px;padding:28px 25px;background:#e3f0fd!important;border:2px solid #9bc7f0!important;border-radius:15px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;color:var(--navy)}
+.teacher-entry{align-self:stretch;justify-content:center;min-height:270px}.side-card strong{font-size:clamp(1.2rem,2vw,1.75rem);line-height:1.2;margin-top:0}.side-card span:last-child{font-size:1rem;line-height:1.55;color:#355e89}.role-icon.round-icon{width:78px;height:78px;border-radius:50%;background:#2c7cc5;color:#fff;display:grid;place-items:center;padding:18px;margin-bottom:16px}.role-icon svg{width:100%;height:100%;fill:currentColor}.login-card{position:relative;z-index:2;background:#f8fbff;border:2px solid #c3d9ee;border-radius:18px;padding:24px 27px;box-shadow:0 14px 30px #245c9120;margin:0 -7px}.login-title{display:flex;align-items:center;gap:14px;border-bottom:3px solid #a8cfee;padding-bottom:15px;margin-bottom:18px;color:var(--navy)}.login-title svg{width:68px;height:68px;fill:#2c7cc5;flex:none}.login-title h3{font-size:clamp(1.35rem,2.3vw,2rem);line-height:1.1;margin:0;font-weight:850}.login-card .field{position:relative;margin-bottom:16px}.login-card label{font-size:.98rem;color:#173f70}.login-card input{padding:13px 42px 13px 14px;border:2px solid #c7d9e9;border-radius:10px;background:#fff}.input-symbol{position:absolute;right:14px;bottom:11px;color:#7088a2;font-size:20px}.password-wrap{position:relative}.password-wrap input{padding-right:48px}.eye-btn{position:absolute;right:7px;top:5px;border:0;background:transparent;color:#617f9f;font-size:22px;padding:5px 7px}.login-submit{width:100%;padding:13px;font-size:1.05rem;border-radius:10px;background:#2c7cc5;border-color:#2c7cc5}.login-demo-note{margin:12px 0 0;text-align:center;color:#52769b;font-size:.78rem}.login-error{margin:10px 0 0;color:#a12f3a;font-weight:700}.privacy-home{max-width:none!important;margin:0!important;background:#e3f1ff!important;border:2px solid #b3d5f4!important;color:#214e7b!important;padding:18px 22px;font-size:.95rem}
+@media(max-width:760px){header{background:linear-gradient(120deg,#d9eafd,#c6def8)}}
+
+
+
+/* Rediseño moderno: azul medio, superficies celestes y bordes consistentes */
+:root{
+ --navy:#183f6b;--navy2:#245f98;--blue:#397fbd;--blue2:#d2e5fa;
+ --gold:#4f8bc5;--gold-pale:#dceafb;--ink:#203b58;--muted:#526f8d;
+ --line:#78a6d5;--paper:#e4effb;--bg:#d5e6f8;--shadow:0 18px 48px rgba(24,63,107,.16)
+}
+body{background:radial-gradient(ellipse at 8% 0,#b9d6f5 0,transparent 42%),linear-gradient(135deg,#d5e6f8,#c7def5);color:var(--ink)}
+.shell{max-width:1220px}
+.app{background:#e4effb;border:2px solid #6e9fd0;box-shadow:var(--shadow)}
+.top-accent{height:7px;background:linear-gradient(90deg,#183f6b,#397fbd 55%,#9fc8f0)}
+header{background:linear-gradient(120deg,#c8def5 0%,#d7e8fa 52%,#bcd7f3 100%);border-bottom:2px solid #78a6d5;padding:30px clamp(20px,4vw,44px)}
+.logo-wrap{flex:0 0 136px;width:136px;height:136px;background:#e0edfb;border:2px solid #5e96ce;border-radius:20px;padding:8px;box-shadow:0 7px 18px #183f6b18}
+.brand h1{color:#183f6b}.overline,.eyebrow{color:#245f98}.brand p{color:#496887}.crest{border-left-color:#78a6d5;color:#397fbd}
+main{background:linear-gradient(180deg,#e0ecfa,#dce9f8 72%,#d7e6f7)}
+.welcome h2,.section-head h2,.role-card strong,.card-head h3,.student-name,.timeline-item h4{color:#183f6b}
+.lead,.section-head p{color:#526f8d}
+.role-card,.card,.timeline-item{background:#d7e7f8;border:1.5px solid #78a6d5;box-shadow:0 4px 14px #183f6b0a}
+.role-card:hover,.role-card:focus-visible{background:#cde1f7;border-color:#397fbd;box-shadow:0 10px 24px #183f6b18}
+.role-icon,.stat-icon{background:#bfd9f5;color:#245f98;border:1px solid #8db6df}
+.stats .stat{background:linear-gradient(145deg,#d8e8f9,#cbdff5);border:1.5px solid #78a6d5}
+.stat-top,.stat small{color:#526f8d}.stat strong{color:#183f6b}
+.card-head{background:#cbdff5;border-bottom:1.5px solid #78a6d5}
+.card-body{background:#dce9f8}
+label{color:#294b70}
+input,select,textarea{background:#e5effb;border:1.5px solid #78a6d5;color:#203b58;border-radius:10px}
+input:focus,select:focus,textarea:focus{background:#edf5ff;border-color:#245f98;box-shadow:0 0 0 3px #397fbd25}
+input::placeholder,textarea::placeholder{color:#718ba7}
+.filters{background:#cbdff5;border-bottom:1.5px solid #78a6d5}
+.tabs{background:#c6dcf4;border:1.5px solid #78a6d5}
+.tab{color:#496887}.tab[aria-selected=true]{background:#e4effb;color:#183f6b;box-shadow:inset 0 0 0 1px #78a6d5}
+.btn{background:#d2e4f8;border:1.5px solid #78a6d5;color:#183f6b}.btn:hover{background:#bfd8f3}
+.btn-primary{background:#245f98;color:#fff;border-color:#245f98}.btn-primary:hover{background:#183f6b}
+.btn-danger{background:#f0e5eb;border-color:#c99eaf;color:#873d54}.btn-danger:hover{background:#ead5df}
+.btn-gold{background:#c9e0f8;border-color:#78a6d5;color:#214f7e}
+.badge{background:#c5def7;color:#245f98;border:1px solid #8db6df}
+th{background:#c6dcf4;color:#355a80;border-bottom:1.5px solid #78a6d5}
+th,td{border-bottom:1px solid #a5c4e5}
+tbody tr{background:#dfebf9}tbody tr:nth-child(even){background:#d5e5f7}tbody tr:hover{background:#c6def6}
+.type-pill{background:#c4dcf5;color:#214f7e;border:1px solid #8db6df}
+.empty{background:#d7e7f8;color:#526f8d}.empty strong{color:#183f6b}
+.notice.info{background:#d2e5fa;border:1.5px solid #78a6d5;color:#294f7d}
+.notice.warn{background:#f0e9d7;border:1.5px solid #c8b88d;color:#765717}
+.notice.success{background:#d4eadf;border:1.5px solid #8abda5;color:#21654f}
+.notice.error{background:#f0dfe4;border:1.5px solid #cb9da8;color:#873d49}
+.timeline-item:before{background:#397fbd}.footer{background:#cbdff5;border-top:1.5px solid #78a6d5;color:#496887}.privacy span{color:#245f98}
+.hint,.subtext{color:#526f8d}
+
+/* Portada inspirada en la referencia: familia a la izquierda, acceso docente centrado y administración a la derecha */
+.welcome{padding:26px 0 18px}.welcome h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:850}.welcome .lead{max-width:900px;font-size:1.12rem;color:#244e7d}
+.portal-layout{display:grid;grid-template-columns:1fr 1.25fr 1fr;align-items:center;gap:18px;margin:22px 0 24px;text-align:left}
+.side-card{min-height:280px;padding:28px 25px;background:#e3f0fd!important;border:2px solid #9bc7f0!important;border-radius:15px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;color:var(--navy)}
+.teacher-entry{align-self:stretch;justify-content:center;min-height:270px}.side-card strong{font-size:clamp(1.2rem,2vw,1.75rem);line-height:1.2;margin-top:0}.side-card span:last-child{font-size:1rem;line-height:1.55;color:#355e89}.role-icon.round-icon{width:78px;height:78px;border-radius:50%;background:#2c7cc5;color:#fff;display:grid;place-items:center;padding:18px;margin-bottom:16px}.role-icon svg{width:100%;height:100%;fill:currentColor}.login-card{position:relative;z-index:2;background:#f8fbff;border:2px solid #c3d9ee;border-radius:18px;padding:24px 27px;box-shadow:0 14px 30px #245c9120;margin:0 -7px}.login-title{display:flex;align-items:center;gap:14px;border-bottom:3px solid #a8cfee;padding-bottom:15px;margin-bottom:18px;color:var(--navy)}.login-title svg{width:68px;height:68px;fill:#2c7cc5;flex:none}.login-title h3{font-size:clamp(1.35rem,2.3vw,2rem);line-height:1.1;margin:0;font-weight:850}.login-card .field{position:relative;margin-bottom:16px}.login-card label{font-size:.98rem;color:#173f70}.login-card input{padding:13px 42px 13px 14px;border:2px solid #c7d9e9;border-radius:10px;background:#fff}.input-symbol{position:absolute;right:14px;bottom:11px;color:#7088a2;font-size:20px}.password-wrap{position:relative}.password-wrap input{padding-right:48px}.eye-btn{position:absolute;right:7px;top:5px;border:0;background:transparent;color:#617f9f;font-size:22px;padding:5px 7px}.login-submit{width:100%;padding:13px;font-size:1.05rem;border-radius:10px;background:#2c7cc5;border-color:#2c7cc5}.login-demo-note{margin:12px 0 0;text-align:center;color:#52769b;font-size:.78rem}.login-error{margin:10px 0 0;color:#a12f3a;font-weight:700}.privacy-home{max-width:none!important;margin:0!important;background:#e3f1ff!important;border:2px solid #b3d5f4!important;color:#214e7b!important;padding:18px 22px;font-size:.95rem}
+@media(max-width:760px){header{padding:20px}.logo-wrap{width:108px;height:108px;flex-basis:108px}}
+@media(max-width:520px){.logo-wrap{width:92px;height:92px;flex-basis:92px}.brand h1{font-size:1.3rem}}
+
+
+
+/* Portada inspirada en la referencia visual compartida por el usuario */
+body{min-height:100vh;background:linear-gradient(135deg,#0878df 0%,#1689f4 45%,#55b0ff 100%);color:#174783}
+.shell{max-width:1440px;margin:24px auto;padding:0 22px}
+.app{position:relative;background:#f1f7ff;border:0;border-radius:28px;box-shadow:0 24px 65px rgba(7,55,117,.22);overflow:hidden}
+.top-accent{height:8px;background:linear-gradient(90deg,#0755b8,#1387f4 55%,#82c5ff)}
+header{min-height:174px;padding:30px clamp(22px,4vw,54px);gap:28px;background:linear-gradient(115deg,#f6faff 0%,#eaf4ff 55%,#dcecff 100%);border-bottom:0}
+.logo-wrap{flex:0 0 142px;width:142px;height:142px;border:0;border-radius:20px;background:transparent;padding:3px;box-shadow:none}
+.logo{object-fit:contain;filter:drop-shadow(0 3px 3px rgba(13,78,157,.08))}
+.brand h1{font-size:clamp(1.8rem,3.4vw,2.65rem);color:#123f9b;margin:6px 0 8px;letter-spacing:-.035em}
+.brand p{font-size:clamp(1rem,1.5vw,1.2rem);color:#4386d4}
+.overline,.eyebrow{color:#087bf0;letter-spacing:.13em;font-weight:850}
+.crest{color:#087bf0;border:0;font-size:30px}
+main{padding:clamp(24px,4vw,48px);background:linear-gradient(180deg,#f3f8ff 0%,#eaf4ff 100%)}
+.welcome{padding:0 0 8px;text-align:center}
+.welcome .eyebrow{font-size:.9rem;margin-bottom:7px}
+.welcome h2{font-size:clamp(1.75rem,3vw,2.25rem);color:#123f9b;margin:0}
+.lead{max-width:850px;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.6;color:#1475df;margin:12px auto 32px}
+.role-grid{max-width:970px;gap:26px}
+.role-card{position:relative;min-height:220px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px 28px;background:linear-gradient(145deg,#f8fbff,#e7f2ff);border:2px solid #c3dcfb;border-radius:19px;box-shadow:0 5px 16px rgba(31,94,169,.045);color:#174783}
+.role-card:hover,.role-card:focus-visible{background:#e0efff;border-color:#4c9bf5;box-shadow:0 13px 28px rgba(20,100,204,.14);transform:translateY(-3px)}
+.role-icon{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;margin:0 auto 13px;background:linear-gradient(145deg,#e2efff,#cbdfff);border:0;color:#124ba7;font-size:35px}
+.role-card strong{font-size:clamp(1.15rem,1.7vw,1.45rem);color:#123f9b}
+.role-card span:last-child{font-size:1rem;line-height:1.5;color:#5d88c5;max-width:350px}
+.welcome .notice.info{max-width:none!important;margin:30px calc(clamp(24px,4vw,48px)*-1) -48px!important;padding:20px clamp(24px,8vw,110px);border:0;border-top:1px solid #c5def9;border-radius:0;background:linear-gradient(90deg,#d7eaff,#eaf4ff);color:#0873df;font-size:.96rem;line-height:1.6}
+.footer{background:#dcecff;border-top:1px solid #c3dcfb;color:#3e70aa}
+
+/* Portada inspirada en la referencia: familia a la izquierda, acceso docente centrado y administración a la derecha */
+.welcome{padding:26px 0 18px}.welcome h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:850}.welcome .lead{max-width:900px;font-size:1.12rem;color:#244e7d}
+.portal-layout{display:grid;grid-template-columns:1fr 1.25fr 1fr;align-items:center;gap:18px;margin:22px 0 24px;text-align:left}
+.side-card{min-height:280px;padding:28px 25px;background:#e3f0fd!important;border:2px solid #9bc7f0!important;border-radius:15px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;color:var(--navy)}
+.teacher-entry{align-self:stretch;justify-content:center;min-height:270px}.side-card strong{font-size:clamp(1.2rem,2vw,1.75rem);line-height:1.2;margin-top:0}.side-card span:last-child{font-size:1rem;line-height:1.55;color:#355e89}.role-icon.round-icon{width:78px;height:78px;border-radius:50%;background:#2c7cc5;color:#fff;display:grid;place-items:center;padding:18px;margin-bottom:16px}.role-icon svg{width:100%;height:100%;fill:currentColor}.login-card{position:relative;z-index:2;background:#f8fbff;border:2px solid #c3d9ee;border-radius:18px;padding:24px 27px;box-shadow:0 14px 30px #245c9120;margin:0 -7px}.login-title{display:flex;align-items:center;gap:14px;border-bottom:3px solid #a8cfee;padding-bottom:15px;margin-bottom:18px;color:var(--navy)}.login-title svg{width:68px;height:68px;fill:#2c7cc5;flex:none}.login-title h3{font-size:clamp(1.35rem,2.3vw,2rem);line-height:1.1;margin:0;font-weight:850}.login-card .field{position:relative;margin-bottom:16px}.login-card label{font-size:.98rem;color:#173f70}.login-card input{padding:13px 42px 13px 14px;border:2px solid #c7d9e9;border-radius:10px;background:#fff}.input-symbol{position:absolute;right:14px;bottom:11px;color:#7088a2;font-size:20px}.password-wrap{position:relative}.password-wrap input{padding-right:48px}.eye-btn{position:absolute;right:7px;top:5px;border:0;background:transparent;color:#617f9f;font-size:22px;padding:5px 7px}.login-submit{width:100%;padding:13px;font-size:1.05rem;border-radius:10px;background:#2c7cc5;border-color:#2c7cc5}.login-demo-note{margin:12px 0 0;text-align:center;color:#52769b;font-size:.78rem}.login-error{margin:10px 0 0;color:#a12f3a;font-weight:700}.privacy-home{max-width:none!important;margin:0!important;background:#e3f1ff!important;border:2px solid #b3d5f4!important;color:#214e7b!important;padding:18px 22px;font-size:.95rem}
+@media(max-width:900px){.portal-layout{grid-template-columns:1fr 1fr}.login-card{grid-column:1/-1;grid-row:1;max-width:560px;width:100%;justify-self:center}.side-card{min-height:220px}.side-card:first-child{grid-column:1}.side-card:last-child{grid-column:2}}@media(max-width:760px){.shell{margin:12px auto;padding:0 8px}.app{border-radius:19px}header{min-height:0;padding:20px;gap:15px}.logo-wrap{width:92px;height:92px;flex-basis:92px}.brand h1{font-size:1.45rem}.brand p{font-size:.9rem}.crest{display:none}main{padding:24px 18px}.role-grid{grid-template-columns:1fr;max-width:480px}.role-card{min-height:190px}.welcome .notice.info{margin:28px -18px -24px!important;padding:17px 20px}}
+@media(max-width:520px){header{align-items:flex-start}.logo-wrap{width:72px;height:72px;flex-basis:72px}.brand h1{font-size:1.18rem}.overline{font-size:.62rem}.welcome h2{font-size:1.55rem}.lead{font-size:.98rem}.role-card{padding:22px 18px}}
+
+
+/* Iconos ilustrados para los accesos de familias y docentes */
+.role-icon{width:82px;height:82px;flex:0 0 82px;background:linear-gradient(145deg,#dcecff,#b9d7f7);border:1px solid #a5c8ed;box-shadow:0 5px 13px rgba(24,75,137,.10)}
+.role-icon svg{width:48px;height:48px;fill:#174f9f;stroke:#174f9f;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.role-icon svg .paper-fold{fill:none;stroke:#c7def8}.role-icon svg .paper-lines{fill:none;stroke:#d9eaff;stroke-width:3}
+.role-card:hover .role-icon{background:linear-gradient(145deg,#cce3ff,#a9cef5)}
+@media(max-width:520px){.role-icon{width:74px;height:74px;flex-basis:74px}.role-icon svg{width:43px;height:43px}}
+</style>
+</head>
+<body>
+<div class="shell"><div class="app">
+<div class="top-accent"></div>
+<header>
+<div class="logo-wrap"><img class="logo" src="Maristas.png" alt="Logotipo institucional" onerror="this.parentElement.innerHTML='<span style=&quot;font-size:30px&quot;>✦</span>'"></div>
+<div class="brand"><div class="overline">Unidad Educativa · Comunidad Marista</div><h1>Agenda Digital Marcelino Champagnat II</h1><p>Gestión de asistencia, seguimiento escolar y comunicación con las familias</p></div>
+<div class="crest" aria-hidden="true">✦</div>
+</header>
+<main>
+<section id="pantallaInicio" class="welcome">
+<div class="eyebrow">Unidad Educativa Marcelino Champagnat II</div><h2>Bienvenidos a la Agenda Digital</h2><p class="lead">Consulta de notificaciones y seguimiento escolar de la Unidad Educativa Marcelino Champagnat II.</p>
+<div class="portal-layout">
+<button type="button" class="role-card side-card" id="btnPadres"><span class="role-icon round-icon" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M32 6 5 29h7v28h16V40h8v17h16V29h7z"/></svg></span><strong>Portal de familia</strong><span>Consultar notificaciones y el registro de los estudiantes.</span></button>
+<button type="button" class="role-card side-card teacher-entry" id="btnMaestro"><span class="role-icon round-icon" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="22" cy="18" r="11"/><path d="M3 53c0-13 7-22 19-22s19 9 19 22v3H3z"/><path d="M39 7h21v37H43" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/></svg></span><strong>Portal del maestro</strong><span>Acceso para registrar y consultar las notificaciones de los cursos.</span></button>
+<form id="loginDemo" class="login-card hidden"><div class="login-title"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="22" cy="18" r="11"/><path d="M3 53c0-13 7-22 19-22s19 9 19 22v3H3z"/><path d="M39 7h21v37H43" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/></svg><h3>Portal del maestro</h3></div>
+<div class="field"><label for="usuarioDemo">Usuario del maestro</label><input id="usuarioDemo" autocomplete="username" placeholder="Usuario" required><span class="input-symbol">♙</span></div>
+<div class="field"><label for="claveDemo">Contraseña</label><div class="password-wrap"><input id="claveDemo" type="password" autocomplete="current-password" placeholder="Contraseña" required><button class="eye-btn" id="verClave" type="button" aria-label="Mostrar contraseña">◉</button></div></div>
+<button type="submit" class="btn btn-primary login-submit">Iniciar sesión</button><p id="loginError" class="login-error hidden" role="alert">Usuario o contraseña incorrectos.</p><p class="login-demo-note">Cuenta de prueba para el personal docente</p><button type="button" class="btn" id="volverPortales">← Volver a los portales</button></form>
+<button type="button" class="role-card side-card" id="btnAdmin"><span class="role-icon round-icon" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M32 5 39 9 47 8 51 16 58 21 56 30 59 38 52 44 49 53 40 54 32 60 24 54 15 53 12 44 5 38 8 30 6 21 13 16 17 8 25 9z"/><circle cx="32" cy="32" r="11" fill="#eaf4ff"/></svg></span><strong>Portal de administración</strong><span>Gestión de cursos y revisión de los registros escolares.</span></button>
+</div>
+<div class="notice info privacy-home"><b>Compromiso con la privacidad:</b> los registros escolares deben ser consultados únicamente por personas autorizadas. Esta versión es una demostración local y no verifica la identidad real de las familias.</div>
+</section>
+
+<section id="moduloPadres" class="hidden">
+<div class="section-head"><div><div class="eyebrow">Portal de familias</div><h2>Consulta de registros</h2><p>Busque al estudiante para consultar los avisos registrados.</p></div><button type="button" class="btn" data-volver>← Volver al inicio</button></div>
+<div class="card"><div class="card-head"><h3>Buscar notificaciones</h3><span class="badge">Consulta escolar</span></div><div class="card-body"><div class="field"><label for="buscadorAlumno">Nombre o apellido del estudiante</label><input type="search" id="buscadorAlumno" maxlength="100" autocomplete="off" placeholder="Ej. María López"></div><p class="hint">Introduzca al menos dos caracteres para realizar la búsqueda.</p><div id="resultadosFamilia" class="timeline" aria-live="polite" style="margin-top:16px"><div class="empty"><strong>Sin búsqueda activa</strong>Escriba el nombre del estudiante para comenzar.</div></div></div></div>
+<div class="notice warn">Para proteger los datos, cierre la página después de consultar. En una instalación real, cada familia debe iniciar sesión y ver únicamente los registros de sus hijos.</div>
+</section>
+
+<section id="moduloMaestros" class="hidden">
+<div class="section-head"><div><div class="eyebrow">Gestión institucional</div><h2>Panel de administración</h2><p>Resumen, registro de incidencias e historial de notificaciones.</p></div><div class="nav-actions"><span class="badge">Modo docente</span><button type="button" class="btn" data-volver>Salir del panel</button></div></div>
+<div class="notice warn"><b>Importante:</b> esta versión guarda datos en el navegador de este dispositivo. La clave de demostración no es seguridad real; no la publique con datos personales de estudiantes. Para producción se requiere autenticación y una base de datos protegida en un servidor.</div>
+<div class="stats">
+<div class="stat"><div class="stat-top">Total de registros <span class="stat-icon">▤</span></div><strong id="statTotal">0</strong><small>Incidencias almacenadas</small></div>
+<div class="stat"><div class="stat-top">Registros recientes <span class="stat-icon">◷</span></div><strong id="statRecent">0</strong><small>Últimos 7 días</small></div>
+<div class="stat"><div class="stat-top">Cursos registrados <span class="stat-icon">⌂</span></div><strong id="statCourses">0</strong><small>Cursos con actividad</small></div>
+<div class="stat"><div class="stat-top">Estudiantes <span class="stat-icon">♙</span></div><strong id="statStudents">0</strong><small>Con registros asociados</small></div>
+</div>
+<div class="tabs" role="tablist" aria-label="Secciones de administración">
+<button class="tab" type="button" role="tab" aria-selected="true" data-tab="registro">＋ Nueva notificación</button>
+<button class="tab" type="button" role="tab" aria-selected="false" data-tab="historial">▤ Historial</button>
+<button class="tab" type="button" role="tab" aria-selected="false" data-tab="resumen">◫ Resumen por curso</button>
+</div>
+
+<section class="tab-panel" id="panel-registro" role="tabpanel">
+<div class="card"><div class="card-head"><h3>Registrar una incidencia escolar</h3><span class="subtext">Los campos con * son obligatorios.</span></div><div class="card-body">
+<form id="formularioDocente" class="form-grid" autocomplete="on">
+<div class="field"><label for="profesor">Nombre del docente *</label><input type="text" id="profesor" maxlength="100" placeholder="Nombre y apellido" required></div>
+<div class="field"><label for="materia">Materia / asignatura *</label><select id="materia" required><option value="">Seleccione una materia</option><option>Matemáticas</option><option>Lenguaje y Literatura</option><option>Física</option><option>Química</option><option>Biología / Geografía</option><option>Historia / Ciencias Sociales</option><option>Inglés</option><option>Educación Física</option><option>Artes Plásticas</option><option>Música</option><option>Religión / Valores</option><option>Computación / Sistemas</option><option>General</option></select></div>
+<div class="field"><label for="curso">Curso y sección *</label><select id="curso" required><option value="">Seleccione el curso</option><option>1° de Secundaria - Sección A</option><option>1° de Secundaria - Sección B</option><option>2° de Secundaria - Sección A</option><option>2° de Secundaria - Sección B</option><option>3° de Secundaria - Sección A</option><option>3° de Secundaria - Sección B</option><option>4° de Secundaria - Sección A</option><option>4° de Secundaria - Sección B</option><option>5° de Secundaria - Sección A</option><option>5° de Secundaria - Sección B</option><option>6° de Secundaria - Sección A</option><option>6° de Secundaria - Sección B</option></select></div>
+<div class="field"><label for="estudiante">Nombre completo del estudiante *</label><input type="text" id="estudiante" maxlength="100" placeholder="Nombre y apellido" required autocomplete="off"></div>
+<div class="field"><label for="incidencia">Tipo de incidencia *</label><select id="incidencia" required><option value="">Seleccione el tipo</option><option>No cumplió con la presentación personal</option><option>No asistió con el uniforme correspondiente</option><option>Falta de respeto a un profesor o compañero</option><option>No presentó la tarea asignada</option><option>Llegada tardía a clase</option><option>Otro motivo</option></select></div>
+<div class="field"><label for="fecha">Fecha del suceso *</label><input type="date" id="fecha" required></div>
+<div class="field full"><label for="observaciones">Observaciones adicionales</label><textarea id="observaciones" maxlength="1000" placeholder="Describa los hechos de forma objetiva y respetuosa. Evite datos personales innecesarios."></textarea><div class="hint">Máximo 1.000 caracteres.</div></div>
+<div class="form-actions"><button type="reset" class="btn">Limpiar formulario</button><button type="submit" class="btn btn-primary">Guardar notificación →</button></div>
+</form></div></div>
+</section>
+
+<section class="tab-panel hidden" id="panel-historial" role="tabpanel">
+<div class="card"><div class="card-head"><h3>Historial de notificaciones</h3><div class="nav-actions"><button type="button" class="btn" id="exportarCsv">↓ Exportar CSV</button><button type="button" class="btn btn-danger" id="borrarTodo">Borrar todos</button></div></div>
+<div class="filters">
+<div><label for="filtroTexto">Buscar</label><input id="filtroTexto" type="search" placeholder="Estudiante, docente o incidencia…"></div>
+<div><label for="filtroCurso">Filtrar por curso</label><select id="filtroCurso"><option value="">Todos los cursos</option></select><div class="hint">Elija un curso para ver solo sus notificaciones. La lista incluye los cursos disponibles aunque todavía no tengan registros.</div></div>
+<div><label for="filtroFecha">Periodo</label><select id="filtroFecha"><option value="">Todas las fechas</option><option value="7">Últimos 7 días</option><option value="30">Últimos 30 días</option><option value="90">Últimos 90 días</option></select></div>
+</div><div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Estudiante / curso</th><th>Incidencia</th><th>Docente / materia</th><th>Acciones</th></tr></thead><tbody id="tablaHistorial"></tbody></table><div id="vacioHistorial" class="empty hidden"><strong>No hay notificaciones que mostrar</strong>Pruebe con otros filtros o registre una nueva incidencia.</div></div></div>
+</section>
+
+<section class="tab-panel hidden" id="panel-resumen" role="tabpanel">
+<div class="card"><div class="card-head"><h3>Actividad por curso</h3><span class="subtext">Distribución de los registros actuales</span></div><div class="card-body"><div id="resumenCursos" class="timeline"></div></div></div>
+</section>
+</section>
+</main>
+<footer class="footer"><span>© Agenda Digital · U.E. Marcelino Champagnat II</span><span class="privacy"><span>◆</span> Gestión responsable y confidencial de la información escolar</span></footer>
+</div></div>
+<script>
+"use strict";
+const DB_KEY="agenda_maristas_db_v2",LEGACY_KEY="agenda_maristas_db";
+const CURSOS_BASE=[...Array.from({length:6},(_,i)=>`${i+1}° de Secundaria - Sección A`),...Array.from({length:6},(_,i)=>`${i+1}° de Secundaria - Sección B`)];
+const DEMO_USER="docente.secundaria", DEMO_PASSWORD="maestros123"; // Credenciales solo para demostración local.
+let registros=[];
+const $=id=>document.getElementById(id);
+const safeText=v=>String(v??"");
+function cargar(){
+ try{const raw=localStorage.getItem(DB_KEY)??localStorage.getItem(LEGACY_KEY);const data=raw?JSON.parse(raw):[];registros=Array.isArray(data)?data.filter(x=>x&&typeof x==="object"&&typeof x.estudiante==="string").map((x,i)=>({...x,id:x.id||`${Date.now()}-${i}`})):[];}
+ catch(e){registros=[];alert("No se pudieron cargar los datos guardados en este navegador.");}
+}
+function persistir(){try{localStorage.setItem(DB_KEY,JSON.stringify(registros));return true}catch(e){alert("No se pudo guardar. Compruebe el espacio disponible del navegador.");return false}}
+function mostrar(id){["pantallaInicio","moduloPadres","moduloMaestros"].forEach(x=>$(x).classList.add("hidden"));$(id).classList.remove("hidden");}
+$("btnPadres").addEventListener("click",()=>{mostrar("moduloPadres");$("buscadorAlumno").value="";renderFamilia("");$("buscadorAlumno").focus()});
+function entrarDocente(){mostrar("moduloMaestros");$("profesor").value="";actualizarPanel()}
+$("loginDemo").addEventListener("submit",e=>{e.preventDefault();const u=$("usuarioDemo").value.trim().toLocaleLowerCase("es"),p=$("claveDemo").value;if(u===DEMO_USER&&p===DEMO_PASSWORD){$("loginError").classList.add("hidden");entrarDocente()}else{$("loginError").classList.remove("hidden");$("claveDemo").select()}});
+$("verClave").addEventListener("click",()=>{const i=$("claveDemo"),show=i.type==="password";i.type=show?"text":"password";$("verClave").textContent=show?"⊘":"◉";$("verClave").setAttribute("aria-label",show?"Ocultar contraseña":"Mostrar contraseña")});
+$("btnMaestro").addEventListener("click",()=>{$("btnMaestro").classList.add("hidden");$("loginDemo").classList.remove("hidden");$("usuarioDemo").focus();$("loginDemo").scrollIntoView({behavior:"smooth",block:"center"})});
+$("btnAdmin").addEventListener("click",()=>{$("btnMaestro").classList.add("hidden");$("loginDemo").classList.remove("hidden");$("usuarioDemo").focus();$("loginDemo").scrollIntoView({behavior:"smooth",block:"center"})});
+$("volverPortales").addEventListener("click",()=>{
+  $("loginDemo").classList.add("hidden");
+  $("btnMaestro").classList.remove("hidden");
+  $("loginError").classList.add("hidden");
+  $("usuarioDemo").value="";
+  $("claveDemo").value="";
+  $("claveDemo").type="password";
+  $("verClave").textContent="◉";
+  $("verClave").setAttribute("aria-label","Mostrar contraseña");
+});
+function salirDelModoMaestro(){
+  // Al salir del panel, cerrar la sesión visual y limpiar el formulario de acceso.
+  mostrar("pantallaInicio");
+  $("loginDemo").classList.add("hidden");
+  $("btnMaestro").classList.remove("hidden");
+  $("loginError").classList.add("hidden");
+  $("usuarioDemo").value="";
+  $("claveDemo").value="";
+  $("claveDemo").type="password";
+  $("verClave").textContent="◉";
+  $("verClave").setAttribute("aria-label","Mostrar contraseña");
+}
+document.querySelectorAll("[data-volver]").forEach(b=>b.addEventListener("click",()=>{
+  if(b.closest("#moduloMaestros")){salirDelModoMaestro();return;}
+  mostrar("pantallaInicio");
+}));
+document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-tab]").forEach(t=>t.setAttribute("aria-selected",String(t===b)));document.querySelectorAll(".tab-panel").forEach(p=>p.classList.add("hidden"));$("panel-"+b.dataset.tab).classList.remove("hidden");if(b.dataset.tab==="historial")renderHistorial();if(b.dataset.tab==="resumen")renderResumen()}));
+function node(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=safeText(text);return n}
+function fechaBonita(s){if(!s)return"Sin fecha";const p=s.split("-");return p.length===3?`${p[2]}/${p[1]}/${p[0]}`:s}
+function cardFamilia(r){const el=node("article","timeline-item");const top=node("div","timeline-top");top.append(node("h4","",r.estudiante),node("span","subtext",fechaBonita(r.fecha)));el.append(top,node("span","type-pill",r.incidencia||"Incidencia"));const p=node("p","",`${r.curso||"Curso no indicado"} · ${r.materia||"General"} · Docente: ${r.profesor||"No especificado"}`);el.append(p);if(r.observaciones)el.append(node("p","",`Observaciones: ${r.observaciones}`));return el}
+function renderFamilia(q){const box=$("resultadosFamilia");box.replaceChildren();q=q.trim().toLocaleLowerCase("es");if(q.length<2){box.append(node("div","empty","Escriba al menos dos caracteres para buscar."));return}const found=registros.filter(r=>r.estudiante.toLocaleLowerCase("es").includes(q));if(!found.length){const e=node("div","empty");e.append(node("strong","","Sin resultados"),document.createTextNode("No se encontraron notificaciones para esa búsqueda."));box.append(e);return}found.forEach(r=>box.append(cardFamilia(r)))}
+$("buscadorAlumno").addEventListener("input",e=>renderFamilia(e.target.value));
+function actualizarPanel(){
+ $("statTotal").textContent=registros.length;
+ const limite=new Date();limite.setDate(limite.getDate()-7);const desde=limite.toISOString().slice(0,10);
+ $("statRecent").textContent=registros.filter(r=>r.fecha>=desde).length;
+ $("statCourses").textContent=new Set(registros.map(r=>r.curso).filter(Boolean)).size;
+ $("statStudents").textContent=new Set(registros.map(r=>r.estudiante.trim().toLocaleLowerCase("es")).filter(Boolean)).size;
+ const filtro=$("filtroCurso"),prev=filtro.value;const cursos=[...new Set([...CURSOS_BASE,...registros.map(r=>r.curso).filter(Boolean)])].sort((a,b)=>a.localeCompare(b,"es",{numeric:true}));
+ filtro.replaceChildren(new Option("Todos los cursos",""));cursos.forEach(c=>filtro.add(new Option(c,c)));if(cursos.includes(prev))filtro.value=prev;
+ renderHistorial();renderResumen();
+}
+$("formularioDocente").addEventListener("submit",e=>{
+ e.preventDefault();const r={id:crypto?.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random()}`,profesor:$("profesor").value.trim(),materia:$("materia").value,curso:$("curso").value,estudiante:$("estudiante").value.trim(),incidencia:$("incidencia").value,fecha:$("fecha").value,observaciones:$("observaciones").value.trim(),creado:new Date().toISOString()};
+ if(!r.profesor||!r.materia||!r.curso||!r.estudiante||!r.incidencia||!r.fecha){alert("Complete todos los campos obligatorios.");return}
+ if(r.fecha>new Date().toISOString().slice(0,10)&&!confirm("La fecha seleccionada es futura. ¿Desea continuar?"))return;
+ registros.unshift(r);if(!persistir()){registros.shift();return}e.target.reset();$("fecha").value=new Date().toISOString().slice(0,10);actualizarPanel();alert("La notificación se guardó en este navegador.");document.querySelector('[data-tab="historial"]').click();
+});
+function registrosFiltrados(){
+ const q=$("filtroTexto").value.trim().toLocaleLowerCase("es"),curso=$("filtroCurso").value,dias=Number($("filtroFecha").value);
+ const min=dias?new Date(Date.now()-dias*86400000).toISOString().slice(0,10):"";
+ return registros.filter(r=>(!q||[r.estudiante,r.profesor,r.incidencia,r.materia,r.curso,r.observaciones].some(v=>safeText(v).toLocaleLowerCase("es").includes(q)))&&(!curso||r.curso===curso)&&(!min||r.fecha>=min)).sort((a,b)=>safeText(b.fecha).localeCompare(safeText(a.fecha)));
+}
+function renderHistorial(){
+ const tbody=$("tablaHistorial");tbody.replaceChildren();const found=registrosFiltrados();$("vacioHistorial").classList.toggle("hidden",found.length>0);
+ found.forEach(r=>{const tr=document.createElement("tr"),td1=node("td","",fechaBonita(r.fecha)),td2=node("td"),td3=node("td"),td4=node("td"),td5=node("td");td2.append(node("span","student-name",r.estudiante),node("span","subtext",r.curso));td3.append(node("span","type-pill",r.incidencia),node("span","subtext",r.observaciones||"Sin observaciones"));td4.append(node("span","",r.profesor||"No especificado"),node("span","subtext",r.materia||"General"));const actions=node("div","table-actions"),ver=node("button","btn mini","Ver"),del=node("button","btn btn-danger mini","Eliminar");ver.type=del.type="button";ver.addEventListener("click",()=>alert(`ESTUDIANTE: ${r.estudiante}\nCURSO: ${r.curso}\nINCIDENCIA: ${r.incidencia}\nFECHA: ${fechaBonita(r.fecha)}\nDOCENTE: ${r.profesor}\nMATERIA: ${r.materia}\nOBSERVACIONES: ${r.observaciones||"Ninguna"}`));del.addEventListener("click",()=>{if(!confirm(`¿Eliminar el registro de ${r.estudiante}? Esta acción no se puede deshacer.`))return;const old=registros;registros=registros.filter(x=>x.id!==r.id);if(!persistir()){registros=old;return}actualizarPanel()});actions.append(ver,del);td5.append(actions);tr.append(td1,td2,td3,td4,td5);tbody.append(tr)});
+}
+["filtroTexto","filtroCurso","filtroFecha"].forEach(id=>$(id).addEventListener(id==="filtroTexto"?"input":"change",renderHistorial));
+function renderResumen(){const box=$("resumenCursos");if(!box)return;box.replaceChildren();const map=new Map();registros.forEach(r=>map.set(r.curso||"Curso no indicado",(map.get(r.curso||"Curso no indicado")||0)+1));const pairs=[...map.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"es"));if(!pairs.length){box.append(node("div","empty","Aún no hay registros para resumir."));return}const max=Math.max(...pairs.map(x=>x[1]));pairs.forEach(([curso,n])=>{const el=node("div","timeline-item"),top=node("div","timeline-top");top.append(node("h4","",curso),node("span","badge",`${n} registro${n===1?"":"s"}`));const track=node("div","");track.style.cssText="height:8px;background:#edf1f6;border-radius:9px;overflow:hidden;margin-top:13px";const bar=node("div","");bar.style.cssText=`height:100%;width:${Math.round(n/max*100)}%;background:linear-gradient(90deg,#183d68,#4d82bd);border-radius:9px`;track.append(bar);el.append(top,track);box.append(el)})}
+function csvEscape(v){return '"'+safeText(v).replace(/"/g,'""')+'"'}
+$("exportarCsv").addEventListener("click",()=>{const rows=registrosFiltrados();if(!rows.length){alert("No hay registros para exportar con los filtros actuales.");return}const headers=["Fecha","Estudiante","Curso","Materia","Docente","Incidencia","Observaciones"];const csv="\uFEFF"+[headers,...rows.map(r=>[r.fecha,r.estudiante,r.curso,r.materia,r.profesor,r.incidencia,r.observaciones])].map(row=>row.map(csvEscape).join(";")).join("\r\n");const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="historial_notificaciones.csv";a.click();URL.revokeObjectURL(url)});
+$("borrarTodo").addEventListener("click",()=>{if(!registros.length){alert("No hay registros para borrar.");return}if(!confirm("¿Está seguro de eliminar TODOS los registros guardados en este navegador? Esta acción no se puede deshacer."))return;const anterior=registros;registros=[];if(!persistir()){registros=anterior;return}actualizarPanel();alert("Se eliminaron los registros de este navegador.")});
+cargar();$("fecha").value=new Date().toISOString().slice(0,10);$("fecha").max=new Date().toISOString().slice(0,10);actualizarPanel();
+</script>
+</body>
+</html><style>
+/* Ajustes finales para una apariencia sencilla y propia de la institución */
+:root{--navy:#17477b;--navy2:#2467a5;--blue:#327dbb;--blue2:#dcecff;--gold:#78aee0;--gold-pale:#e5f0fc;--ink:#263f59;--muted:#506d8a;--line:#8eb7df;--paper:#e5f0fb;--bg:#d4e6f8;--shadow:0 8px 22px rgba(25,69,112,.10)}
+body{background:#cfe3f7;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.shell{max-width:1240px;margin:18px auto}
+.app{border:1px solid #76a8d7;border-radius:14px;box-shadow:0 8px 22px rgba(25,69,112,.12);background:#e5f0fb}
+.top-accent{height:7px;background:#2677bd}
+header{background:#d8eafa;border-bottom:1px solid #8eb7df;padding:26px clamp(18px,4vw,42px)}
+.logo-wrap{width:132px;height:132px;flex-basis:132px;border-radius:8px;background:#e5f0fb;border:1px solid #8eb7df}
+.brand h1{letter-spacing:0;font-weight:700}.overline,.eyebrow{letter-spacing:.08em;font-weight:700}
+main{background:#e5f0fb}
+.welcome{padding:24px 0 22px}.welcome h2{font-weight:700;letter-spacing:0}.welcome .lead{font-size:1.08rem;color:#244f7d;line-height:1.6}
+.portal-layout{gap:16px;margin:24px 0}
+.side-card{background:#e0edfa!important;border:1px solid #8ebbe5!important;border-radius:10px;box-shadow:none!important;min-height:260px;padding:25px 23px;transition:background .15s,border-color .15s}
+.side-card:hover,.side-card:focus-visible{background:#d3e7fa!important;border-color:#367fbd!important;transform:none;box-shadow:none!important}
+.role-icon.round-icon{width:68px;height:68px;padding:15px;background:#2e78b9;margin-bottom:14px}
+.side-card strong{font-size:clamp(1.18rem,1.8vw,1.55rem);font-weight:700}
+.side-card span:last-child{font-size:.98rem;color:#345c82}
+.login-card{background:#eaf3fc;border:1px solid #8eb7df;border-radius:10px;box-shadow:0 8px 18px rgba(25,69,112,.10);padding:23px;margin:0}
+.login-title{border-bottom:2px solid #8eb7df}.login-title h3{font-weight:700}.login-card input{background:#f4f8fd;border:1px solid #8eb7df;border-radius:7px}
+.login-submit{background:#2878bb;border:1px solid #2878bb;border-radius:7px}.login-submit:hover{background:#1b5d96}
+.privacy-home{background:#d9eafa!important;border:1px solid #8eb7df!important;border-radius:9px!important}
+.card,.stat,.timeline-item{border-radius:9px;box-shadow:none}.stat{background:#dceafa}.card-head,.filters,.footer{background:#d6e8f9}
+.btn,.tabs,.tab,.badge{border-radius:7px}.tab[aria-selected=true]{box-shadow:none}
+@media(max-width:760px){.shell{margin:8px auto}.logo-wrap{width:88px;height:88px;flex-basis:88px}header{padding:18px}.portal-layout{gap:12px}.side-card{min-height:180px}}
+</style>
